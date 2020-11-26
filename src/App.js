@@ -1,13 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Index.css';
-import Contact from './components/contacts/Contact';
+import Contacts from './components/contacts/Contacts';
 import Navbar from './components/Navbar';
+import { Provider } from 'react-redux'
+import store from './store';
+
 function App() {
   return (
-    <div className="App">
+    <Provider store={store} >
+      <div className="App">
       <Navbar />
-      <Contact />
+      <Contacts />
     </div>
+    </Provider>
+    
   );
 }
 
