@@ -1,4 +1,4 @@
-import { CREATE_CONTACT } from "../constant/type";
+import { CREATE_CONTACT, GET_CONTACT } from "../constant/type";
 
 const initialState = {
     contacts : [
@@ -232,7 +232,8 @@ const initialState = {
             "bs": "target end-to-end models"
           }
         }
-      ]
+      ],
+      contact: null,
 }
  
 
@@ -242,7 +243,18 @@ export const contactReducer = (state = initialState, action) => {
               return {
                   ...state,
                   contacts: [action.payload, ...state.contacts],
-              }
+              };
+          case GET_CONTACT:
+            let arr = state.contacts.filter((contact) => contact.id.toString() === action.payload);
+            arr = arr.values();
+            for(let val of arr){
+              arr = val;
+            }
+            
+            return{
+              ...state,
+              contact:arr,
+            }
           default:
               return state;
       }
