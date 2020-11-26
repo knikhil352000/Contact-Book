@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
-import { addContact } from '../../store';
 import shortid from 'shortid';
 import {useHistory} from 'react-router-dom';
+import { addContact } from '../../actions/contactAction';
 
 const AddContact = () => {
     let history = useHistory();
@@ -20,6 +20,7 @@ const AddContact = () => {
 
         }
         dispatch(addContact(newContact));
+        history.push('/');
     }
     return (
         <div className="card border-0 shadow">

@@ -4,6 +4,7 @@ import Contact from "./Contact";
 
 const Contacts = () => {
   const contacts = useSelector((state) => state);
+  console.log(contacts);
   return (
     <div>
       <table className="table shadow">
@@ -22,8 +23,8 @@ const Contacts = () => {
           </tr>
         </thead>
         <tbody>
-          {contacts.contacts.map((contact) => (
-            <Contact contact={contact}/>
+          {contacts.contacts.contacts.map((contact) => (
+            <Contact contact={contact} key={contact.id}/>
           ))}
         </tbody>
       </table>
