@@ -19,7 +19,7 @@ function App() {
               <Route exact path='/contacts/add' component={AddContact} />
             </Switch>
           </div>
-          <Contacts />
+          {/* <Contacts /> */}
         </div>
       </Router>
     </Provider>
