@@ -10,7 +10,7 @@ const Contact = (props) => {
       <tr>
         <td>
           <div className="custom-control custom-checkbox">
-            <input type="checkbox" className="custom-control-input" />
+            <input checked={props.selectAll} type="checkbox" className="custom-control-input" />
             <label className="custom-control-label"></label>
           </div>
         </td>
