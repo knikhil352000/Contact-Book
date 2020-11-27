@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import shortid from 'shortid';
 import {useHistory, useParams} from 'react-router-dom';
-import { addContact, getContact } from '../../actions/contactAction';
+import { addContact, getContact, updateContact } from '../../actions/contactAction';
 
 const EditContact = () => {
     let {id} = useParams();
@@ -21,13 +21,24 @@ const EditContact = () => {
         }
         dispatch(getContact(id));
     },[contact]); 
+    const onUpdateContact = (e) =>{
+        e.preventDefault();
+
+        const updatedContact = Object.assign(contact, {
+            name: name,
+            phone:phone,
+            email:email,
+        }) ;
+        dispatch(updateContact(updatedContact));
+        history.push('/');
+    }
     return (
         <div className="card border-0 shadow">
             <div className="card-header">
                 Add a contact
             </div>
             <div className="card-body">
-                <form>
+                <form onSubmit={e => onUpdateContact(e)}>
                     <div className="form-group">
                         <input 
                         type="text" 
